@@ -2,18 +2,16 @@ package src;
 import java.math.BigDecimal;
 
 public class ResidentPricingStrategy implements PricingStrategy {
+    
     @Override
-    public BigDecimal calculatePrice(VehicleType type) {
-        switch (type) {
-            case CAR: return new BigDecimal("50.00");
-            case SUV: return new BigDecimal("75.00");
-            case MOTORCYCLE: return new BigDecimal("30.00");
-            default: return BigDecimal.ZERO;
-        }
+    public BigDecimal getBaseRate() {
+        // Return the flat base rate for residents
+        return new BigDecimal("45.00"); 
     }
 
     @Override
-    public BigDecimal getBaseRate() {
-        throw new UnsupportedOperationException("Unimplemented method 'getBaseRate'");
+    public BigDecimal calculatePrice(VehicleType type) {
+        // This uses the logic: Base Rate * Vehicle Multiplier
+        return type.apply(getBaseRate());
     }
 }
