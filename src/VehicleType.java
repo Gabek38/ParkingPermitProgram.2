@@ -1,13 +1,18 @@
 package src;
-
 import java.math.BigDecimal;
 
 public enum VehicleType {
-    CAR, 
-    SUV, 
-    MOTORCYCLE;
+    CAR("1.00"), 
+    SUV("1.15"), 
+    MOTORCYCLE("0.70");
 
-    BigDecimal apply(BigDecimal rate) {
-        throw new UnsupportedOperationException("Unimplemented method 'apply'");
+    private final BigDecimal multiplier;
+
+    VehicleType(String m) {
+        this.multiplier = new BigDecimal(m);
+    }
+
+    public BigDecimal apply(BigDecimal rate) {
+        return rate.multiply(multiplier);
     }
 }
