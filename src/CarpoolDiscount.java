@@ -8,4 +8,8 @@ public class CarpoolDiscount {
         BigDecimal discountAmount = originalPrice.multiply(DISCOUNT_RATE);
         return originalPrice.subtract(discountAmount);
     }
+
+    public BigDecimal apply(BigDecimal rate) {
+        throw new UnsupportedOperationException("Unimplemented method 'apply'");
+    }
 }

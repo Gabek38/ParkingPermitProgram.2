@@ -11,4 +11,9 @@ public class ResidentPricingStrategy implements PricingStrategy {
             default: return BigDecimal.ZERO;
         }
     }
+
+    @Override
+    public BigDecimal getBaseRate() {
+        throw new UnsupportedOperationException("Unimplemented method 'getBaseRate'");
+    }
 }
